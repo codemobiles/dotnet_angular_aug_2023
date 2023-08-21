@@ -1,8 +1,8 @@
 <div>
   <h1>Login</h1>
-  <form>
-    <input type="text" placeholder="Username"  /><br />
-    <input type="text" placeholder="Password" /><br />
-    <button mat-raised-button color="primary">Login</button>
+  <form (submit)="onSubmit()">
+    <input type="text" placeholder="Username" ngModel name="username" /><br />
+    <input type="text" placeholder="Password" ngModel name="password" /><br />
+    <button mat-raised-button color="primary" type="submit">Login</button>
   </form>
 </div>
