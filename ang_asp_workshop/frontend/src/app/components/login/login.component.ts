@@ -16,4 +16,6 @@ export class LoginComponent {
   onSubmit(value: User) {
     alert(JSON.stringify(value));
   }
+
+  onClickRegister() {}
 }
