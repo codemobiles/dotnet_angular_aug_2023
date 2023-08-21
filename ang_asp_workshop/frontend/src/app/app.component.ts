@@ -24,4 +24,8 @@ export class AppComponent {
   method1() {
     alert('Hey1');
   }
+
+  handleAdd() {
+    alert('Called from Demo');
+  }
 }

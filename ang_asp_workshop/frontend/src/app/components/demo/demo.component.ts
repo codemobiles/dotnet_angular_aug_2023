@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
@@ -7,8 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class DemoComponent {
   @Input() header: string = '';
+  @Output() onAdd = new EventEmitter();
 
   add() {
-    alert('Hey1');
+    this.onAdd.emit();
   }
 }
