@@ -13,5 +13,6 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatButtonToggleModule,
     MatBadgeModule,
   ],
+  exports: [MatButtonModule, MatButtonToggleModule, MatBadgeModule],
 })
 export class MaterialModule {}
