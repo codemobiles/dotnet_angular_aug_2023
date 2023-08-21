@@ -20,5 +20,8 @@ export class AppComponent {
   tmp6: boolean = true;
   tmp7: string = 'yes';
 
-  // tmpX: boolean = getResult();
+  // methods
+  method1() {
+    alert('Hey1');
+  }
 }
