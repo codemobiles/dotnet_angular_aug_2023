@@ -11,6 +11,7 @@ export class LoginComponent {
   constructor(public rest: RestService) {}
 
   hide = true;
+  error = null;
 
   onSubmit(value: User) {
     alert(JSON.stringify(value));
