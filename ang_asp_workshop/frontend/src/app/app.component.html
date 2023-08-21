@@ -1,42 +1,30 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
-  </mat-drawer>
+<mat-sidenav-container autosize>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    opened="isExpanded"
+    *ngIf="rest.isLoggedIn"
+    [ngStyle]="{ width: isExpanded ? '270px' : '65px' }"
+    style="
+      background-size: cover !important;
+      background: url('../assets/images/background_menu.jpg') no-repeat center;
+    "
+  >
+    <!-- Menu -->
+    <app-menu
+      [isOpened]="isExpanded"
+      (sidenavToggle)="isExpanded = !isExpanded"
+    ></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content class="mat-sidenav-content">
+    <!-- Header -->
+    <app-header
+      [isOpened]="isExpanded"
+      *ngIf="rest.isLoggedIn"
+      (sidenavToggle)="isExpanded = !isExpanded"
+    ></app-header>
 
-  <div class="example-sidenav-content">
-    <!-- toolbar -->
-    <mat-toolbar color="primary">
-      <button
-        (click)="drawer.toggle()"
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="example-spacer"></span>
-      <button
-        mat-icon-button
-        class="example-icon favorite-icon"
-        aria-label="Example icon-button with heart icon"
-      >
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with share icon"
-      >
-        <mat-icon>share</mat-icon>
-      </button>
-    </mat-toolbar>
-
-    <!-- our content -->
+    <!-- Page Content -->
     <router-outlet></router-outlet>
-  </div>
-</mat-drawer-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
