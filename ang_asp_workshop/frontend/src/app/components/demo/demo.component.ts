@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class DemoComponent {
   @Input() header: string = '';
+
+  add() {
+    alert('Hey1');
+  }
 }
