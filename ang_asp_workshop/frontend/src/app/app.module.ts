@@ -20,6 +20,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, DemoComponent, HeaderComponent, MenuComponent, LoginComponent, RegisterComponent, StockComponent, StockEditComponent, StockCreateComponent, ReportComponent, ShopComponent, PaymentComponent, TransactionComponent, TransactionDetailComponent, ConfirmDialogComponent, SuccessDialogComponent],
@@ -28,6 +29,7 @@ import { SuccessDialogComponent } from './components/success-dialog/success-dial
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
