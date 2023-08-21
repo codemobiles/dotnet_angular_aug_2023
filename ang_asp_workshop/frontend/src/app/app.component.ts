@@ -19,4 +19,6 @@ export class AppComponent {
   tmp5: number = 10;
   tmp6: boolean = true;
   tmp7: string = 'yes';
+
+  // tmpX: boolean = getResult();
 }
