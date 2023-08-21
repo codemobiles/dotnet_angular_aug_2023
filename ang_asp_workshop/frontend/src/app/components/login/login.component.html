@@ -1,57 +1,6 @@
 <mat-card class="mt-5 login-box">
-  <img
-    mat-card-image
-    [src]="rest.assets('images/login_banner.jpg')"
-    height="200"
-    width="300"
-  />
+  <img mat-card-image [src]="bannerImage" height="200" width="300" />
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
-  <form #loginForm="ngForm" (submit)="onSubmit(loginForm.value)">
-    <mat-card-content style="display: flex; flex-direction: column">
-      <!-- Username -->
-      <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input [(ngModel)]="defaultAccount.username" name="username" matInput />
-        <mat-icon matSuffix>account_box</mat-icon>
-      </mat-form-field>
-
-      <!-- Password -->
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input
-          [(ngModel)]="defaultAccount.password"
-          name="password"
-          matInput
-          [type]="hide ? 'password' : 'text'"
-        />
-        <button
-          type="button"
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
-          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-        </button>
-      </mat-form-field>
-
-      <div *ngIf="error" style="color: red">{{ error }}</div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-stroked-button type="submit" color="primary" mat-button>
-        Login
-      </button>
-      <button
-        mat-flat-button
-        type="button"
-        (click)="onClickRegister()"
-        mat-button
-      >
-        Register
-      </button>
-    </mat-card-actions>
-  </form>
 </mat-card>
