@@ -17,7 +17,6 @@
 #vscode extension
 
 code --install-extension vscode-icons-team.vscode-icons
-code --install-extension naumovs.color-higjohnpapa.angular2hlight
 code --install-extension esbenp.prettier-vscode
 code --install-extension humao.rest-client
 code --install-extension christian-kohler.path-intellisense
