@@ -11,6 +11,7 @@
     <!-- toolbar -->
     <mat-toolbar color="primary">
       <button
+        (click)="drawer.toggle()"
         mat-icon-button
         class="example-icon"
         aria-label="Example icon-button with menu icon"
@@ -35,8 +36,7 @@
       </button>
     </mat-toolbar>
 
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
+    <!-- our content -->
+    <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>
