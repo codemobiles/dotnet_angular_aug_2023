@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  onSubmit(value: any) {
+  onSubmit(value: { username: string; password: string }) {
     alert(JSON.stringify(value));
   }
 }
