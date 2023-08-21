@@ -8,7 +8,6 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  bannerImage = 'assets/images/login_banner.jpg';
   constructor(public rest: RestService) {}
 
   onSubmit(value: User) {
