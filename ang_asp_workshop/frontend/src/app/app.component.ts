@@ -7,18 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'frontend';
-
-  // implicit delcaration
-  tmp1 = 10;
-  tmp2 = false;
-  tmp3 = true;
-  tmp4 = 'yes';
-
-  // explicit delcaration
-  tmp5: number = 10;
-  tmp6: boolean = true;
-  tmp7: string = 'yes';
+  count = 0;
 
   // methods
   method1() {
@@ -26,6 +15,6 @@ export class AppComponent {
   }
 
   handleAdd() {
-    alert('Called from Demo');
+    this.count++;
   }
 }
