@@ -10,6 +10,8 @@ import { RestService } from 'src/app/services/rest.service';
 export class LoginComponent {
   constructor(public rest: RestService) {}
 
+  hide = true;
+
   onSubmit(value: User) {
     alert(JSON.stringify(value));
   }

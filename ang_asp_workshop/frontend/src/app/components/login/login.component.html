@@ -13,7 +13,7 @@
       <!-- Username -->
       <mat-form-field>
         <mat-label>Username</mat-label>
-        <input [(ngModel)]="defaultAccount.username" name="username" matInput />
+        <input ngModel name="username" matInput />
         <mat-icon matSuffix>account_box</mat-icon>
       </mat-form-field>
 
@@ -21,7 +21,7 @@
       <mat-form-field>
         <mat-label>Password</mat-label>
         <input
-          [(ngModel)]="defaultAccount.password"
+          ngModel
           name="password"
           matInput
           [type]="hide ? 'password' : 'text'"
