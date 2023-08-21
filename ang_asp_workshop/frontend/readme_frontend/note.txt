@@ -1,0 +1,18 @@
+1. table
+2. all icons : https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
+3. override style class
+4. what is ::ng-deep
+
+
+#Material UI
+- https://material.angular.io/components/button/overview
+- what is angular attribute?
+- Attribute – Represent the initial value and does not change.
+    + Property – Represent the current value and can change.
+    + https://upmostly.com/angular/attribute-vs-property-in-angular
+- typography : https://material.angular.io/guide/typography
+- angular class="mat-display-3 flex justify-content-center mt-5"
+  + https://www.tutorialspoint.com/angular_material/angular_material_autocomplete.htm
+- bootsrap class : https://getbootstrap.com/docs/4.0/utilities/borders/
+
+
