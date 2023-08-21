@@ -7,14 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  count = 0;
-
-  // methods
-  method1() {
-    alert('Hey1');
-  }
-
-  handleAdd() {
-    this.count++;
-  }
+  showFiller = false;
 }
