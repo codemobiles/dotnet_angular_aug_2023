@@ -1,6 +1,6 @@
 <div>
   <h1>Login</h1>
-  <form (submit)="onSubmit()">
+  <form #loginForm="ngForm" (submit)="onSubmit(loginForm.value)">
     <input type="text" placeholder="Username" ngModel name="username" /><br />
     <input type="text" placeholder="Password" ngModel name="password" /><br />
     <button mat-raised-button color="primary" type="submit">Login</button>
