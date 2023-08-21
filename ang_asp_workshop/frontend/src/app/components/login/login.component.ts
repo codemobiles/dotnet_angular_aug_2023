@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user.model';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class LoginComponent {
   bannerImage = 'assets/images/login_banner.jpg';
+  constructor(public rest: RestService) {}
 
   onSubmit(value: User) {
     alert(JSON.stringify(value));
