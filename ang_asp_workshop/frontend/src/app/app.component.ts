@@ -11,6 +11,7 @@ export class AppComponent {
 
   // implicit delcaration
   tmp1 = 10;
+  tmp2 = false;
   tmp3 = true;
   tmp4 = 'yes';
 
