@@ -28,12 +28,13 @@ export class RestService {
   }
 
   public register(user: User) {
-    return this.http.post<{ result: string; message: string }>(
-      this.registerUrl,
-      user,
-      {
-        headers: this.headers,
-      }
-    );
+    return this.http.post<RegisterResult>(this.registerUrl, user, {
+      headers: this.headers,
+    });
   }
+}
+
+interface RegisterResult {
+  result: string;
+  message: string;
 }
