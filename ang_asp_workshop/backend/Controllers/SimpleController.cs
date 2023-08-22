@@ -34,10 +34,16 @@ namespace backend.Controllers
             return Ok($"Id is {id}");
         }
 
-        [HttpGet("login/{username}/{password}")]
-        public ActionResult<Object> Login(string username, string password)
+        [HttpGet("register/{username}/{password}")]
+        public ActionResult<Object> Register(string username, string password)
         {
             return Ok(new { username = username, password = password });
+        }
+
+        [HttpGet("login/{username}/{password}")]
+        public ActionResult<Object> Login(string username, string password, [FromQuery] string level)
+        {
+            return Ok(new { username = username, password = password, level = level });
         }
 
 
