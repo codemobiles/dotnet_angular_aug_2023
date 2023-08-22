@@ -21,15 +21,34 @@ import { TransactionDetailComponent } from './components/transaction-detail/tran
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, HeaderComponent, MenuComponent, LoginComponent, RegisterComponent, StockComponent, StockEditComponent, StockCreateComponent, ReportComponent, ShopComponent, PaymentComponent, TransactionComponent, TransactionDetailComponent, ConfirmDialogComponent, SuccessDialogComponent],
+  declarations: [
+    AppComponent,
+    DemoComponent,
+    HeaderComponent,
+    MenuComponent,
+    LoginComponent,
+    RegisterComponent,
+    StockComponent,
+    StockEditComponent,
+    StockCreateComponent,
+    ReportComponent,
+    ShopComponent,
+    PaymentComponent,
+    TransactionComponent,
+    TransactionDetailComponent,
+    ConfirmDialogComponent,
+    SuccessDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

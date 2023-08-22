@@ -21,7 +21,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async onSubmit(value: User) {}
+  async onSubmit(value: User) {
+    alert(JSON.stringify(value));
+  }
 
   onClickCancel() {
     this.router.navigate(['/login']);
