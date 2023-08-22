@@ -13,7 +13,11 @@ import { lastValueFrom } from 'rxjs';
 export class RegisterComponent implements OnInit {
   hide = true;
 
-  constructor(private router: Router, public rest: RestService) {}
+  constructor(
+    private router: Router,
+    public rest: RestService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {}
 
