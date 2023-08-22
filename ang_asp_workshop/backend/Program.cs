@@ -1,7 +1,14 @@
 using backend.Database;
+using backend.Installers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add all services into the installers folder 
+// InstallerExtensions.cs extension adds InstallServiceInAssembly
+builder.Services.InstallServiceInAssembly(builder.Configuration);
+
+
 
 // Add services to the container.
 builder.Services.AddCors(options =>
