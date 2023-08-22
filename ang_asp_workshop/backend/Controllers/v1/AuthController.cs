@@ -19,7 +19,7 @@ namespace backend.Controller.v1
         [HttpPost("[action]")]
         public IActionResult Register([FromBody] User user)
         {
-            return Ok(new { result = "register", user = user });
+            return Ok(new { result = "nok", message = "Register failed" });
         }
     }
 }
