@@ -31,8 +31,15 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> GetstringById(int id)
         {
-            return Ok("Id is " + id.ToString());
+            return Ok($"Id is {id}");
         }
+
+        [HttpGet("login/{username}/{password}")]
+        public ActionResult<Object> Login(string username, string password)
+        {
+            return Ok(new { username = username, password = password });
+        }
+
 
         [HttpPost("")]
         public ActionResult<string> Poststring(string model)
