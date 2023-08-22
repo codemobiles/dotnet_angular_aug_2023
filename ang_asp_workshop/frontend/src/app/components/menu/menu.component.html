@@ -1,1 +1,49 @@
-<p>menu works!</p>
+<mat-nav-list class="container">
+  <img
+    *ngIf="isOpened"
+    [src]="rest.assets('images/angular_logo.jpg')"
+    alt=""
+    width="100%"
+  />
+
+  <!-- menu button when collapse -->
+  <div
+    *ngIf="!isOpened"
+    class="!bg-red-500 h-[64px] flex justify-center items-center"
+  >
+    <button
+      class="!bg-red-500 !text-white"
+      mat-icon-button
+      (click)="onToggleSidenav()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div style="height: 8px"></div>
+
+  <a mat-list-item routerLink="/stock" routerLinkActive="active">
+    <mat-icon>dashboard</mat-icon>
+    <span *ngIf="isOpened" class="nav-caption">Stock</span>
+  </a>
+
+  <mat-divider> </mat-divider>
+
+  <a mat-list-item routerLink="/shop" routerLinkActive="active">
+    <mat-icon>shop</mat-icon>
+    <span *ngIf="isOpened" class="nav-caption">Shop</span>
+  </a>
+  <mat-divider> </mat-divider>
+  <a mat-list-item routerLink="/report" routerLinkActive="active">
+    <mat-icon>pie_chart</mat-icon>
+    <span *ngIf="isOpened" class="nav-caption">Report</span>
+  </a>
+
+  <mat-divider> </mat-divider>
+
+  <a mat-list-item routerLink="/transaction" routerLinkActive="active">
+    <mat-icon>history</mat-icon>
+    <span *ngIf="isOpened" class="nav-caption">Transaction (Optional)</span>
+  </a>
+  <mat-divider> </mat-divider>
+</mat-nav-list>
