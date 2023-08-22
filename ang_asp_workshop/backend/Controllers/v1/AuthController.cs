@@ -7,13 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controller.v1
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/v1/[controller]")]
     public class AuthController : ControllerBase
     {
         public AuthController()
         {
         }
+
+        [HttpPost("[action]")]
+        public IActionResult Register(string model)
+        {
+            return Ok("sadf");
+        }
+
 
     }
 }
