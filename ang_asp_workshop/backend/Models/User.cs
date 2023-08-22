@@ -8,5 +8,4 @@
         public string? Position { get; set; }
         public DateTime Created { get; set; }
     }
-
 }
