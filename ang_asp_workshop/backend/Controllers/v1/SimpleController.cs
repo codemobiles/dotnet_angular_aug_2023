@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 //using backend.Models;
 
-namespace backend.Controllers
+namespace backend.Controllers.v1
 {
     [Route("api/[controller]")]
     [ApiController]
