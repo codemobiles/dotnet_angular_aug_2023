@@ -1,3 +1,6 @@
+using System.Reflection;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using backend.Database;
 using backend.Installers;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // InstallerExtensions.cs extension adds InstallServiceInAssembly
 builder.Services.InstallServiceInAssembly(builder.Configuration);
 
-
+// Option 2# to Auto Add Services Repository (2 methods)
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()); // Call this before calling builder.Host.ConfigureContainer..
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterAssemblyTypes(Assembly.GetEntryAssembly())
+    .Where(t => t.Name.EndsWith("Repository")) // Suffix Naming of AuthRepository, ProductRepository
+    .AsImplementedInterfaces();
+});
 
 // Add services to the container.
 builder.Services.AddCors(options =>
