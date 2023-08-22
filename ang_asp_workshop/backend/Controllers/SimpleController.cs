@@ -24,14 +24,14 @@ namespace backend.Controllers
         [HttpGet("result1")]
         public ActionResult<string> GetResult1()
         {
-            return "I am result1";
+            return Ok("I am result1");
         }
 
 
         [HttpGet("{id}")]
         public ActionResult<string> GetstringById(int id)
         {
-            return null;
+            return Ok("Id is " + id.ToString());
         }
 
         [HttpPost("")]
