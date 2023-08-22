@@ -28,6 +28,6 @@ export class RestService {
   }
 
   public register(user: User) {
-    this.http.post('http://localhost:5168/api/v2/auth/register', user);
+    return this.http.post('http://localhost:5168/api/v1/auth/register', user);
   }
 }
