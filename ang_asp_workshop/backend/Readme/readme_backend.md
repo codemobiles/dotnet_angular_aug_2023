@@ -38,7 +38,7 @@ dotnet add package Swashbuckle.AspNetCore
 - dotnet tool install --global dotnet-ef
 - dotnet tool update --global dotnet-ef
 - dotnet tool uninstall --global dotnet-ef
-- dotnet-ef --version
+- dotnet ef --version
 
 # tool path
 
@@ -47,7 +47,7 @@ Windows ---> %USERPROFILE%\.dotnet\tools
 
 # work on both window and mac
 
-- dotnet ef dbcontext scaffold "Server=localhost,1433;user id=sa; password=Mflv[Mflv[; Database=demopos; TrustServer Certificate=true;" Microsoft.EntityFrameworkCore.SqlServer -o Models -c DatabaseContext --context-dir Database
+- dotnet ef dbcontext scaffold "Server=localhost,1433;user id=sa; password=Mflv[Mflv[; Database=demopos; TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -o Models -c DatabaseContext --context-dir Database
 
 - if localhost not work, let's try 127.0.0.1
 
