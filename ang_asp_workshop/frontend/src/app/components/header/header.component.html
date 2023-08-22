@@ -1,1 +1,42 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="flex flex-row">
+  <mat-toolbar-row>
+    <!-- toggle button -->
+    <button *ngIf="isOpened" mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a id="home-button" (click)="onToggleSidenav()"
+      ><div class="mat-body1">V. {{ version }}</div></a
+    >
+
+    <!-- center title -->
+    <div style="flex: 0.9"></div>
+    <div class="mat-body2">
+      CodeMobiles Company Ltd. {{ pageName | titlecase }}
+    </div>
+    <div style="flex: 1"></div>
+
+    <!-- logout button -->
+    <span>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+        class="ml-auto"
+      >
+        <img
+          height="35"
+          width="35"
+          mat-card-avatar
+          [src]="rest.assets('images/cmdev_logo.png')"
+          alt=""
+        />
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onClickSignout()">
+          <mat-icon>lock</mat-icon>
+          <span>ออกจากระบบ</span>
+        </button>
+      </mat-menu>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
