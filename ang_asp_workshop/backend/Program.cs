@@ -1,3 +1,6 @@
+using backend.Database;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +15,10 @@ builder.Services.AddCors(options =>
                       });
 
 });
+
+// Configure DB
+// builder.Services.AddDbContext<DatabaseContext>(options =>
+// options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionSQLServer")));
 
 
 builder.Services.AddControllers();
