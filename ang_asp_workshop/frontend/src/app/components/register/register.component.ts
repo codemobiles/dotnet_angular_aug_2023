@@ -22,8 +22,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   async onSubmit(value: User) {
-    const result = await lastValueFrom(this.rest.register(value));
-    alert(JSON.stringify(result));
+    const response = await lastValueFrom(this.rest.register(value));
+    if (response.result === 'ok') {
+      alert(response.message);
+      this.router.navigate(['login']);
+    } else {
+      alert(response.message);
+    }
   }
 
   onClickCancel() {
