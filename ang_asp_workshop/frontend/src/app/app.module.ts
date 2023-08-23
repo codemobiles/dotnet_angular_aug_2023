@@ -22,6 +22,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmCreateDialogComponent } from './components/confirm-create-dialog/confirm-create-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     TransactionDetailComponent,
     ConfirmDialogComponent,
     SuccessDialogComponent,
+    ConfirmCreateDialogComponent,
   ],
   imports: [
     BrowserModule,
