@@ -19,14 +19,20 @@ const routes: Routes = [
   {
     path: 'stock/create',
     component: StockCreateComponent,
+    canActivate: [authenGuard],
   },
   {
     path: 'stock/edit/:id',
     component: StockEditComponent,
+    canActivate: [authenGuard],
   },
-  { path: 'shop', component: ShopComponent },
-  { path: 'report', component: ReportComponent },
-  { path: 'transaction', component: TransactionComponent },
+  { path: 'shop', component: ShopComponent, canActivate: [authenGuard] },
+  { path: 'report', component: ReportComponent, canActivate: [authenGuard] },
+  {
+    path: 'transaction',
+    component: TransactionComponent,
+    canActivate: [authenGuard],
+  },
   { path: '**', redirectTo: 'login' }, // undefined pages
 ];
 

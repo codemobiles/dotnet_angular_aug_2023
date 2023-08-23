@@ -9,6 +9,7 @@ export const authenGuard: CanActivateFn = (route, state) => {
   if (rest.isLoggedIn) {
     // already logged-in
     if (state.url == '/login') {
+
       router.navigate(['stock']);
     }
     return true;
