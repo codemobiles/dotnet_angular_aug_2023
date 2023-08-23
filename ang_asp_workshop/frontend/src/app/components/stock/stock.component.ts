@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { Product } from 'src/app/models/product.model';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./stock.component.scss'],
 })
 export class StockComponent implements OnInit, AfterViewInit, OnDestroy {
-  products: any[] = [];
+  products: Product[] = [];
 
   constructor(private rest: RestService) {}
   ngOnInit(): void {
