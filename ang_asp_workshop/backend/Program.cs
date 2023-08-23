@@ -7,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// make sure call this because used in ProductController
+builder.Services.AddAutoMapper(typeof(Program));
+
 // Add all services into the installers folder 
 // InstallerExtensions.cs extension adds InstallServiceInAssembly
 builder.Services.InstallServiceInAssembly(builder.Configuration);

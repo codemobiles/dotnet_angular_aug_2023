@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.Models;
 using backend.Services;
+using backend.ViewModels;
 // using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 //using v1.Models;
@@ -29,10 +30,12 @@ namespace backend.Controller.v1
         }
 
         [HttpPost("[action]")]
-        public IActionResult Login([FromBody] User user)
+        public IActionResult Login([FromBody] LoginViewModel loginViewModel)
         {
             try
             {
+                
+
                 (User? result, string token) = _authRepository.Login(user);
 
                 if (result == null)
