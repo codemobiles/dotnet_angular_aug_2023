@@ -61,7 +61,9 @@ export class StockCreateComponent implements OnInit {
       },
     });
 
-    if (this.formProduct != null && this.imageFile != null) {
+    let result = await lastValueFrom(dialogConfirm.afterClosed());
+
+    if (result && this.formProduct != null && this.imageFile != null) {
       const formData = new FormData();
       formData.append('name', this.formProduct.value.name);
       formData.append('price', this.formProduct.value.price);
