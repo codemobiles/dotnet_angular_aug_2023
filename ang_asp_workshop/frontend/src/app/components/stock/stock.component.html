@@ -1,5 +1,14 @@
 <div>
   <ul>
-    <li *ngFor="let item of products">{{ item.name }}, {{ item.price }}</li>
+    <li *ngFor="let item of products">
+      <span>
+        <img
+          src="https://localhost:8081/images/product_01.jpg"
+          alt=""
+          class="w-[50px]"
+        />
+        {{ item.name }}, {{ item.price }}
+      </span>
+    </li>
   </ul>
 </div>
