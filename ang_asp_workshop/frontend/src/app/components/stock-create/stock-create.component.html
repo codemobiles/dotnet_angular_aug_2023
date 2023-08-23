@@ -3,13 +3,13 @@
     <mat-card-header>
       <mat-card-title> สร้างสินค้า </mat-card-title>
     </mat-card-header>
-    <form [formGroup]="formProduct" (submit)="onSubmit()">
+    <form [formGroup]="formProduct" (ngSubmit)="onSubmit()">
       <mat-card-content>
         <div class="form-container">
           <!-- Name field -->
           <mat-form-field>
             <mat-label>ชื่อ</mat-label>
-            <input matInput name="name" formControlName="name" />
+            <input matInput name="name" formControlName="name" required />
             <mat-error
               *ngIf="
                 formProduct.get('name')?.invalid &&
@@ -20,25 +20,64 @@
             >
           </mat-form-field>
 
+          <!-- Price field -->
+          <mat-form-field>
+            <mat-label>ราคา</mat-label>
+            <input
+              type="number"
+              matInput
+              name="price"
+              formControlName="price"
+            />
+            <mat-error
+              *ngIf="
+                formProduct.get('price')?.invalid &&
+                formProduct.get('price')?.touched
+              "
+            >
+              *โปรดระบุ ให้ถูกต้อง</mat-error
+            >
+          </mat-form-field>
+
           <!-- Stock field -->
           <mat-form-field>
             <mat-label>จำนวน</mat-label>
-            <input matInput name="stock" formControlName="stock" />
+            <input
+              type="number"
+              matInput
+              name="stock"
+              formControlName="stock"
+            />
+
             <mat-error
               *ngIf="
                 formProduct.get('stock')?.invalid &&
                 formProduct.get('stock')?.touched
               "
             >
-              *โปรดระบุ จำนวน</mat-error
+              *โปรดระบุ ให้ถูกต้อง</mat-error
             >
           </mat-form-field>
 
-          <!-- Price field -->
-          <mat-form-field>
-            <mat-label>ราคา</mat-label>
-            <input matInput name="price" formControlName="price" />
-          </mat-form-field>
+          <div class="d-flex">
+            <!-- Preview image -->
+            <div
+              class="d-flex justify-content-center"
+              *ngIf="imageFile"
+              style="margin-right: 24px"
+            >
+              <img alt="" class="h-[100px]" [src]="imageURL" />
+            </div>
+
+            <!-- Image Input file browse field -->
+
+            <input
+              type="file"
+              formControlName="image"
+              placeholder="รูปสินค้า"
+              (change)="onChangeImage($event)"
+            />
+          </div>
         </div>
       </mat-card-content>
       <mat-card-actions align="end">

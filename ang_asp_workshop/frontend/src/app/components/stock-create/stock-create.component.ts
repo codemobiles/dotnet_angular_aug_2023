@@ -13,6 +13,9 @@ export class StockCreateComponent implements OnInit {
   imageFile = null;
   formProduct!: FormGroup;
   constructor(private rest: RestService, private location: Location) {}
+
+  onChangeImage($event: Event) {}
+
   ngOnInit(): void {
     this.initForm();
   }
