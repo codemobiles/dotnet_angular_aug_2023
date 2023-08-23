@@ -27,6 +27,10 @@ export class RestService {
     return false;
   }
 
+  public login(value: User) {
+    return this.http.post<any>(this.loginUrl, value, { headers: this.headers });
+  }
+
   public register(user: User) {
     return this.http.post<RegisterResult>(this.registerUrl, user, {
       headers: this.headers,

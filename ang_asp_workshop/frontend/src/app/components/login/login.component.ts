@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { RestService } from 'src/app/services/rest.service';
 
@@ -14,8 +15,9 @@ export class LoginComponent {
   hide = true;
   error = null;
 
-  onSubmit(value: User) {
-    alert(JSON.stringify(value));
+  async onSubmit(value: User) {
+    const response = await lastValueFrom(this.rest.login(value));
+    
   }
 
   onClickRegister() {

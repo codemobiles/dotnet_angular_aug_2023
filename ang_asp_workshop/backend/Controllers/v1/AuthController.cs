@@ -33,7 +33,6 @@ namespace backend.Controller.v1
         {
             try
             {
-
                 (User? result, string token) = _authRepository.Login(user);
 
                 if (result == null)
