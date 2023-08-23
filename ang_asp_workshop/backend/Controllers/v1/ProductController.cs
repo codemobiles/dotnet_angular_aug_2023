@@ -15,5 +15,20 @@ namespace backend.Controller.v1
         {
         }
 
+        [HttpGet]
+        public IActionResult GetProducts()
+        {
+            try
+            {
+                var result = _productRepository.GetProducts();
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+
+                return StatusCode(500, new { message = error });
+            }
+        }
+
     }
 }
