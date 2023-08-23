@@ -27,8 +27,9 @@ namespace backend.Controller.v1
         }
 
         [HttpPost("[action]")]
-        public IActionResult Register([FromBody] User user)
+        public IActionResult Register([FromBody] RegisterViewModel registerViewModel)
         {
+            var user = _mapper.Map<User>(registerViewModel);
             _authRepository.Register(user);
             return Ok(new { result = "ok", message = "Register succcessfully" });
         }
