@@ -35,6 +35,10 @@ export class RestService {
       headers: this.headers,
     });
   }
+
+  public getProducts() {
+    return this.http.get<any>(this.productUrl, { headers: this.headers });
+  }
 }
 
 interface RegisterResult {
