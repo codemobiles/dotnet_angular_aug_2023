@@ -53,6 +53,7 @@ export class StockCreateComponent implements OnInit {
   }
 
   async onSubmit() {
+    debugger;
     const dialogConfirm = this.dialog.open(ConfirmCreateDialogComponent, {
       data: {
         title: 'ยืนยันการสร้าง',
