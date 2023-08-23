@@ -1,5 +1,19 @@
 <div class="p-7">
   <p>{{ data.title }}</p>
+  <p>
+    <img
+      [src]="rest.getProductImage(data.item.image)"
+      alt=""
+      class="w-[100px]"
+    />
+  </p>
   <p>{{ data.item.name }}</p>
   <p>{{ data.subtitle }}</p>
+
+  <div class="flex flex-row content-between">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="accent" (click)="confirm()">
+      Confirm
+    </button>
+  </div>
 </div>
