@@ -8,13 +8,14 @@ import { ShopComponent } from './components/shop/shop.component';
 import { StockCreateComponent } from './components/stock-create/stock-create.component';
 import { StockEditComponent } from './components/stock-edit/stock-edit.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { authenGuard } from './services/authen.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   // { path: 'extra', component: ExtraComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [authenGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'stock', component: StockComponent },
+  { path: 'stock', component: StockComponent, canActivate: [authenGuard] },
   {
     path: 'stock/create',
     component: StockCreateComponent,
