@@ -30,6 +30,20 @@ namespace backend.Services
         }
 
 
+        public (User?, string) Login(User user)
+        {
+            var result = _context.Users.SingleOrDefault(u => u.Username == user.Username);
+            var token = String.Empty;
+            if (result != null && VerifyPassword(result.Password!, user.Password!))
+            {
+                token = "1234"; // BuildToken(result);
+            }
+
+            return (result, token);
+        }
+
+
+
         private string CreatePasswordHash(string password)
         {
             byte[] salt = new byte[128 / 8];
