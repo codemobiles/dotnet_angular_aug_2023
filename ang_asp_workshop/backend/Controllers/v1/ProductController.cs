@@ -22,6 +22,7 @@ namespace backend.Controller.v1
         [HttpPost]
         public IActionResult AddProduct([FromBody] Product product, IFormFile image)
         {
+            Console.WriteLine("There is request");
             _productRepository.AddProduct(product, image);
             return Ok();
         }
