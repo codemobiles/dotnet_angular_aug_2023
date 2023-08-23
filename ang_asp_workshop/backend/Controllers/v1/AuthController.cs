@@ -27,5 +27,12 @@ namespace backend.Controller.v1
             _authRepository.Register(user);
             return Ok(new { result = "ok", message = "Register succcessfully" });
         }
+
+        [HttpPost("[action]")]
+        public ActionResult<TModel> Login([FromBody] User user)
+        {
+            return null;
+        }
+
     }
 }
