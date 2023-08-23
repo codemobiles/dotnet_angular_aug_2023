@@ -23,8 +23,7 @@ export class RestService {
   }
 
   public get isLoggedIn(): boolean {
-    // return localStorage.getItem(environment.token) != null;
-    return false;
+    return localStorage.getItem(environment.token) != null;
   }
 
   public login(value: User) {
