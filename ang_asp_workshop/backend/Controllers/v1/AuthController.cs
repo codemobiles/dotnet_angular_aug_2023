@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using backend.Models;
 using backend.Services;
 using backend.ViewModels;
@@ -16,10 +17,13 @@ namespace backend.Controller.v1
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _authRepository;
+        private readonly IMapper _mapper;
 
-        public AuthController(IAuthRepository authRepository)
+        public AuthController(IAuthRepository authRepository, IMapper mapper)
         {
+            _mapper = mapper;
             _authRepository = authRepository;
+
         }
 
         [HttpPost("[action]")]
@@ -34,8 +38,7 @@ namespace backend.Controller.v1
         {
             try
             {
-                
-
+                var user = _mapper.Map<User>(loginViewModel);
                 (User? result, string token) = _authRepository.Login(user);
 
                 if (result == null)
