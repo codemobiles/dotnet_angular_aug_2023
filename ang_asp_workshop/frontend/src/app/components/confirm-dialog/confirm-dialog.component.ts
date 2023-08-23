@@ -1,7 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { RestService } from './../../services/rest.service';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Product } from 'src/app/models/product.model';
-import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -16,17 +15,13 @@ export class ConfirmDialogComponent implements OnInit {
     public data: {
       title: string;
       subtitle: string;
-      item: Product;
+      item: any;
     }
   ) {}
 
   ngOnInit(): void {}
 
-  cancel() {
-    this.dialogRef.close();
-  }
-
-  confirm() {
-    this.dialogRef.close(true);
+  onClickConfirm() {
+    this.dialogRef.close(this.data.item);
   }
 }
