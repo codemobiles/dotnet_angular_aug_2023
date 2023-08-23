@@ -21,10 +21,12 @@ namespace backend.Services
             _context = context;
         }
 
-        public IEnumerable<Product> GetProducts()
+
+        public IEnumerable<Product> LoadProducts()
         {
-            return _context.Products.OrderByDescending(p => p.ProductId).ToList(); // sort by ProductId
+            return _context.Products.OrderByDescending(p => p.ProductId).ToList();
         }
+
 
         public Product GetProduct(int id)
         {

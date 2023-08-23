@@ -6,7 +6,7 @@ namespace backend.Services
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetProducts();
+        IEnumerable<Product> LoadProducts();
         Product GetProduct(int id);
         void AddProduct(Product product, IFormFile image);
         void EditProduct(Product product, IFormFile? image);
