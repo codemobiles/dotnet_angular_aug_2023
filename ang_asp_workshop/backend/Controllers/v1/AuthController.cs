@@ -29,7 +29,7 @@ namespace backend.Controller.v1
         }
 
         [HttpPost("[action]")]
-        public ActionResult<TModel> Login([FromBody] User user)
+        public IActionResult Login([FromBody] User user)
         {
             try
             {
