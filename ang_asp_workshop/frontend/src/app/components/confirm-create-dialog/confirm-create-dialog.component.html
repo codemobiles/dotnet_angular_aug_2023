@@ -1,1 +1,11 @@
-<p>confirm-create-dialog works!</p>
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content class="mat-typography">
+  <h3 class="mat-small">{{ data.subtitle }}</h3>
+  <span>{{ data.item.name }}</span>
+  <br />
+  <!-- <img width="200" src="{{ rest.getProductImage(data.item.image) }}" alt="" /> -->
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close cdkFocusInitial>ยกเลิก</button>
+  <button mat-button (click)="onClickConfirm()" color="warn">ตกลง</button>
+</div>
