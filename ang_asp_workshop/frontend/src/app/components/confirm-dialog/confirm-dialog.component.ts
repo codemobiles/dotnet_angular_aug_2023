@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Product } from 'src/app/models/product.model';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { RestService } from 'src/app/services/rest.service';
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss'],
 })
-export class ConfirmDialogComponent {
+export class ConfirmDialogComponent implements OnInit {
   constructor(
     public rest: RestService,
     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
@@ -15,7 +16,9 @@ export class ConfirmDialogComponent {
     public data: {
       title: string;
       subtitle: string;
-      item: any;
+      item: Product;
     }
   ) {}
+
+  ngOnInit(): void {}
 }
