@@ -14,17 +14,24 @@ export class LoginComponent {
   constructor(public rest: RestService, private router: Router) {}
 
   hide = true;
-  error = null;
+  error?: string | null = null;
 
   async onSubmit(value: User) {
-    let response = await lastValueFrom(this.rest.login(value));
+    try {
+      let response = await lastValueFrom(this.rest.login(value));
 
-    if (response.token) {
-      this.error = null;
-      localStorage.setItem(environment.token, response.token);
-      this.router.navigate(['stock']);
-    } else {
-      this.error = response.message;
+      if (response.token) {
+        this.error = null;
+        localStorage.setItem(environment.token, response.token);
+        this.router.navigate(['stock']);
+      } else {
+        alert('Login failed');
+        this.error = 'Login failed';
+        localStorage.removeItem(environment.token);
+      }
+    } catch (e) {
+      // this.error = JSON.stringify(e);
+      this.error = 'Login failed';
       localStorage.removeItem(environment.token);
     }
   }
