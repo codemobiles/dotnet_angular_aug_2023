@@ -59,8 +59,10 @@ export class StockComponent implements OnInit, AfterViewInit {
 
     let result = await lastValueFrom(dialogConfirm.afterClosed());
     if (result) {
-      await lastValueFrom(this.rest.deleteProduct(row.productId));
-      this.dataSource.data = await lastValueFrom(this.rest.getProducts());
+      alert('Delete confirmed');
+
+      // await lastValueFrom(this.rest.deleteProduct(row.productId));
+      // this.dataSource.data = await lastValueFrom(this.rest.getProducts());
     }
   }
 

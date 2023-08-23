@@ -22,7 +22,11 @@ export class ConfirmDialogComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  cancel() {}
+  cancel() {
+    this.dialogRef.close();
+  }
 
-  confirm() {}
+  confirm() {
+    this.dialogRef.close(true);
+  }
 }
