@@ -9,10 +9,10 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./stock.component.scss'],
 })
 export class StockComponent implements OnInit, AfterViewInit, OnDestroy {
-  displayedColumns: string[] = ['productId', 'name', 'price', 'stock'];
+  displayedColumns: string[] = ['productId', 'image', 'name', 'price', 'stock'];
   dataSource: Product[] = [];
 
-  constructor(private rest: RestService) {}
+  constructor(public rest: RestService) {}
   ngOnInit(): void {
     this.loadData();
   }

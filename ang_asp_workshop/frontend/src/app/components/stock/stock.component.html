@@ -8,6 +8,18 @@
     <td mat-cell *matCellDef="let element">{{ element.productId }}</td>
   </ng-container>
 
+  <!-- Position Column -->
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">
+      <img
+        [src]="rest.getProductImage(element.image)"
+        alt=""
+        class="w-[50px]"
+      />
+    </td>
+  </ng-container>
+
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
