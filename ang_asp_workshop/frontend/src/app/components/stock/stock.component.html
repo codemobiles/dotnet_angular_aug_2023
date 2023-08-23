@@ -1,47 +1,133 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+<div class="flex flex-row justify-center mt-10">
+  <mat-card class="w-[95%]">
+    <div class="flex flex-row justify-between">
+      <mat-card-header>
+        <mat-card-title>Stock Management</mat-card-title>
+        <mat-card-subtitle>{{ numberOfRow }} รายการ</mat-card-subtitle>
+      </mat-card-header>
+      <button
+        [routerLink]="['/stock/create']"
+        mat-fab
+        class="add-btn"
+        style="margin-right: 60px"
+      >
+        <mat-icon style="font-size: 25px">add</mat-icon>
+      </button>
+    </div>
+    <mat-card-content>
+      <mat-form-field class="w-full">
+        <input
+          class="w-100"
+          matInput
+          type="text"
+          placeholder="ค้นหา"
+          [(ngModel)]="searchValue"
+          (keyup)="doFilter($event)"
+        />
+        <button
+          mat-button
+          *ngIf="searchValue"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="clearSearch()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="productId">
-    <th mat-header-cell *matHeaderCellDef>No.</th>
-    <td mat-cell *matCellDef="let element">{{ element.productId }}</td>
-  </ng-container>
+      <table
+        mat-table
+        #table
+        [dataSource]="dataSource"
+        class="w-full table-hovor"
+        matSort
+        matSortActive="productId"
+        matSortDirection="desc"
+      >
+        <!-- Id -->
+        <ng-container matColumnDef="productId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>เลขที่</th>
+          <td mat-cell *matCellDef="let row">{{ row.productId }}</td>
+        </ng-container>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="image">
-    <th mat-header-cell *matHeaderCellDef>No.</th>
-    <td mat-cell *matCellDef="let element">
-      <img
-        [src]="rest.getProductImage(element.image)"
-        alt=""
-        class="w-[50px]"
-      />
-    </td>
-  </ng-container>
+        <!-- Image -->
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center">
+            รูป
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <img
+              src="{{ rest.getProductImage(row.image) }}"
+              height="50px"
+              class="mat-image-cell"
+            />
+          </td>
+        </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-  </ng-container>
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ชื่อ</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef>Price</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.price | number : "1.2-2" }}
-    </td>
-  </ng-container>
+        <!-- Price -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ราคา</th>
+          <td mat-cell *matCellDef="let row">
+            <span style="margin-right: 16px">
+              ฿ {{ row.price | number : "1.2-2" }}
+            </span>
+          </td>
+        </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="stock">
-    <th mat-header-cell *matHeaderCellDef>Stock</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.stock | number }}
-    </td>
-  </ng-container>
+        <!-- Stock -->
+        <ng-container matColumnDef="stock">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>จำนวน</th>
+          <td mat-cell *matCellDef="let row">
+            <span style="margin-right: 16px">
+              {{ row.stock | number }} pcs.
+            </span>
+          </td>
+        </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+        <!-- Actions -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center">
+            จัดการ
+          </th>
+          <td mat-cell *matCellDef="let row" style="text-align: center">
+            <button
+              [routerLink]="['/stock/edit/' + row.productId]"
+              mat-raised-button
+              class="edit-btn"
+            >
+              แก้ไข
+            </button>
+            |
+            <button
+              (click)="onClickDelete(row)"
+              mat-raised-button
+              class="delete-btn"
+            >
+              ลบ
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <div
+        class="mat-display-3 flex justify-center mt-5"
+        *ngIf="dataSource.data.length === 0"
+      >
+        No records found
+      </div>
+
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 15, 25, 100]">
+      </mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>
