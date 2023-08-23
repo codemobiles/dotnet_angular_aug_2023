@@ -22,7 +22,7 @@ export class StockCreateComponent implements OnInit {
         Validators.required,
         Validators.maxLength(10),
       ]),
-      stock: new FormControl(10, []),
+      stock: new FormControl(10, [Validators.required]),
       price: new FormControl(200, []),
     });
   }

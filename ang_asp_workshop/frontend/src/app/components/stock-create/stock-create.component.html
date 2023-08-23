@@ -9,7 +9,7 @@
           <!-- Name field -->
           <mat-form-field>
             <mat-label>ชื่อ</mat-label>
-            <input matInput name="name" formControlName="name" required />
+            <input matInput name="name" formControlName="name" />
             <mat-error
               *ngIf="
                 formProduct.get('name')?.invalid &&
@@ -23,13 +23,21 @@
           <!-- Stock field -->
           <mat-form-field>
             <mat-label>จำนวน</mat-label>
-            <input matInput name="stock" formControlName="stock" required />
+            <input matInput name="stock" formControlName="stock" />
+            <mat-error
+              *ngIf="
+                formProduct.get('stock')?.invalid &&
+                formProduct.get('stock')?.touched
+              "
+            >
+              *โปรดระบุ จำนวน</mat-error
+            >
           </mat-form-field>
 
           <!-- Price field -->
           <mat-form-field>
             <mat-label>ราคา</mat-label>
-            <input matInput name="price" formControlName="price" required />
+            <input matInput name="price" formControlName="price" />
           </mat-form-field>
         </div>
       </mat-card-content>
