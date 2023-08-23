@@ -53,7 +53,6 @@ export class StockCreateComponent implements OnInit {
   }
 
   async onSubmit() {
-    debugger;
     const dialogConfirm = this.dialog.open(ConfirmCreateDialogComponent, {
       data: {
         title: 'ยืนยันการสร้าง',
@@ -71,7 +70,12 @@ export class StockCreateComponent implements OnInit {
       formData.append('stock', this.formProduct.value.stock);
       formData.append('file', this.imageFile);
 
-      await lastValueFrom(this.rest.addProduct(formData));
+      try {
+        await lastValueFrom(this.rest.addProduct(formData));
+      } catch (e) {
+        alert(JSON.stringify(e));
+      }
+
       this.location.back();
     }
   }

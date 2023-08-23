@@ -20,10 +20,10 @@ namespace backend.Controller.v1
         }
 
         [HttpPost]
-        public IActionResult AddProduct([FromBody] Product product, IFormFile image)
+        public IActionResult AddProduct([FromForm] Product product, IFormFile file)
         {
             Console.WriteLine("There is request");
-            _productRepository.AddProduct(product, image);
+            _productRepository.AddProduct(product, file);
             return Ok();
         }
 
@@ -33,6 +33,7 @@ namespace backend.Controller.v1
         {
             try
             {
+                Console.WriteLine("There is query");
                 var result = _productRepository.LoadProducts();
                 return Ok(result);
             }

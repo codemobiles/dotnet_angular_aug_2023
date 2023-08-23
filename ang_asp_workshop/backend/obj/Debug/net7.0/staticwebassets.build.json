@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y9ZsHtNYOUAZOmBKolhHNT4OLHeqdIvglrnde0gXY4g=",
+  "Hash": "UKyOYKuyIzK2k/5u1i636rzjj3N5gMQHNgP1lV3BpSo=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/524080e2-10ab-4399-bbe5-a86f3991bf07.png"
+    },
+    {
+      "Identity": "/Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/wwwroot/images/f0d5d474-fc1c-46c9-87d1-55eedd7bebcb.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/wwwroot/",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/f0d5d474-fc1c-46c9-87d1-55eedd7bebcb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/f0d5d474-fc1c-46c9-87d1-55eedd7bebcb.jpg"
     },
     {
       "Identity": "/Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/wwwroot/images/product_01.jpg",
