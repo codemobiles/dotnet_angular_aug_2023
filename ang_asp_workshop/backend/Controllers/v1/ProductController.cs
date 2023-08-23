@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Services;
 using Microsoft.AspNetCore.Mvc;
 //using Controllers.Models;
 
@@ -11,8 +12,10 @@ namespace backend.Controller.v1
     [ApiController]
     public class ProductController : ControllerBase
     {
-        public ProductController()
+        private readonly IProductRepository _productRepository;
+        public ProductController(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
         }
 
         [HttpGet]
@@ -20,7 +23,7 @@ namespace backend.Controller.v1
         {
             try
             {
-                var result = _productRepository.GetProducts();
+                var result = _productRepository.LoadProducts();
                 return Ok(result);
             }
             catch (Exception error)
