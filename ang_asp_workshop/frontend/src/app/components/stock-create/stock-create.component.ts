@@ -58,7 +58,7 @@ export class StockCreateComponent implements OnInit {
       data: {
         title: 'ยืนยันการสร้าง',
         subtitle: 'คุณต้องการสร้างสินค้านี้ใช่หรือไม่?',
-        item: this.formProduct.value,
+        item: { ...this.formProduct.value, image: this.imageURL },
       },
     });
 
