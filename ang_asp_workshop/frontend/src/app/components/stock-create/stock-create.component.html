@@ -10,6 +10,14 @@
           <mat-form-field>
             <mat-label>ชื่อ</mat-label>
             <input matInput name="name" formControlName="name" required />
+            <mat-error
+              *ngIf="
+                formProduct.get('name')?.invalid &&
+                formProduct.get('name')?.touched
+              "
+            >
+              *โปรดระบุ ชื่อสินค้า</mat-error
+            >
           </mat-form-field>
 
           <!-- Stock field -->

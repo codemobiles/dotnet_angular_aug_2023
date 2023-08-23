@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -18,13 +18,18 @@ export class StockCreateComponent implements OnInit {
   }
   initForm() {
     this.formProduct = new FormGroup({
-      name: new FormControl('Your Product', []),
+      name: new FormControl('Your Product', [
+        Validators.required,
+        Validators.maxLength(10),
+      ]),
       stock: new FormControl(10, []),
       price: new FormControl(200, []),
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    alert(JSON.stringify(this.formProduct.value));
+  }
 
   onClickCancel() {
     this.location.back();
