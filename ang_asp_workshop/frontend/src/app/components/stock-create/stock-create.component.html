@@ -4,11 +4,27 @@
       <mat-card-title> สร้างสินค้า </mat-card-title>
     </mat-card-header>
     <form [formGroup]="formProduct">
-      <!-- Name field -->
-      <mat-form-field>
-        <mat-label>ชื่อ</mat-label>
-        <input matInput name="name" formControlName="name" required />
-      </mat-form-field>
+      <mat-card-content>
+        <div class="form-container">
+          <!-- Name field -->
+          <mat-form-field>
+            <mat-label>ชื่อ</mat-label>
+            <input matInput name="name" formControlName="name" required />
+          </mat-form-field>
+
+          <!-- Stock field -->
+          <mat-form-field>
+            <mat-label>จำนวน</mat-label>
+            <input matInput name="stock" formControlName="stock" required />
+          </mat-form-field>
+
+          <!-- Price field -->
+          <mat-form-field>
+            <mat-label>ราคา</mat-label>
+            <input matInput name="price" formControlName="price" required />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
     </form>
   </mat-card>
 </div>
