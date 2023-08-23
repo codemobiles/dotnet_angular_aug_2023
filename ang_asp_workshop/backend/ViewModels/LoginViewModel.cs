@@ -8,7 +8,7 @@ namespace backend.ViewModels
         public string Username { get; set; }
 
         [Required]
-        [MinLength(8, ErrorMessage = "passwords must have at least 8 characters")]
+        [MinLength(3, ErrorMessage = "passwords must have at least 3 characters")]
         public string Password { get; set; }
     }
 }
