@@ -9,6 +9,9 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./stock-create.component.scss'],
 })
 export class StockCreateComponent {
+onClickCancel() {
+throw new Error('Method not implemented.');
+}
   imageURL = null;
   imageFile = null;
   formProduct!: FormGroup;

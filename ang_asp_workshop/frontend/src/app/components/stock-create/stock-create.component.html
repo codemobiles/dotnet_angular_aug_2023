@@ -25,6 +25,19 @@
           </mat-form-field>
         </div>
       </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          mat-raised-button
+          color="default"
+          type="button"
+          (click)="onClickCancel()"
+        >
+          ยกเลิก
+        </button>
+        <button mat-raised-button color="primary" type="submit" class="ml-2">
+          สร้าง
+        </button>
+      </mat-card-actions>
     </form>
   </mat-card>
 </div>
