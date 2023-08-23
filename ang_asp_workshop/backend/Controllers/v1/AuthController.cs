@@ -31,7 +31,27 @@ namespace backend.Controller.v1
         [HttpPost("[action]")]
         public ActionResult<TModel> Login([FromBody] User user)
         {
-            return null;
+            try
+            {
+
+                (User? result, string token) = _authRepository.Login(user);
+
+                if (result == null)
+                {
+                    return Unauthorized(new { token = "", message = "username invalid" });
+                }
+
+                if (String.IsNullOrEmpty(token))
+                {
+                    return Unauthorized(new { token = "", message = "password invalid" });
+                }
+
+                return Ok(new { token = token, message = "login successfully" });
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, new { message = error });
+            }
         }
 
     }
