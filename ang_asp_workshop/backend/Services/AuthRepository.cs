@@ -24,6 +24,7 @@ namespace backend.Services
 
         public void Register(User user)
         {
+            user.Password = CreatePasswordHash(user.Password!);
             _context.Users.Add(user);
             _context.SaveChanges();
         }
