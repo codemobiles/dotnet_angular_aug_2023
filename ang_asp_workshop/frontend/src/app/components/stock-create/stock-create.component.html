@@ -3,8 +3,12 @@
     <mat-card-header>
       <mat-card-title> สร้างสินค้า </mat-card-title>
     </mat-card-header>
-    <form >
-
+    <form [formGroup]="formProduct">
+      <!-- Name field -->
+      <mat-form-field>
+        <mat-label>ชื่อ</mat-label>
+        <input matInput name="name" formControlName="name" required />
+      </mat-form-field>
     </form>
   </mat-card>
 </div>
