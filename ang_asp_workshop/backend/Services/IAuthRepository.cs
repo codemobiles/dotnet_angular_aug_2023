@@ -6,6 +6,8 @@ namespace backend.Services
     {
         void Register(User user);
 
+        (User?, string) Login(User user);
+
     }
 
 }
