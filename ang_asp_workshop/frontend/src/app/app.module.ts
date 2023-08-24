@@ -21,8 +21,13 @@ import { TransactionDetailComponent } from './components/transaction-detail/tran
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
 import { ConfirmCreateDialogComponent } from './components/confirm-create-dialog/confirm-create-dialog.component';
+import { authInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,7 @@ import { ConfirmCreateDialogComponent } from './components/confirm-create-dialog
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

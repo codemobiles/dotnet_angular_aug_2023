@@ -5,6 +5,7 @@ import { catchError, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  debugger;
   // intercept the request message
   const router = inject(Router);
   console.log('request', req.method, req.url);
