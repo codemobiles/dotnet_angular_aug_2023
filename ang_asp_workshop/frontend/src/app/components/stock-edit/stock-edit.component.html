@@ -1,1 +1,103 @@
-<p>stock-edit works!</p>
+<ng-container *ngIf="formProduct">
+  <div class="flex flex-row justify-center mt-10">
+    <mat-card class="w-[95%]">
+      <mat-card-header>
+        <mat-card-title> แก้ไขสินค้า </mat-card-title>
+      </mat-card-header>
+      <form
+        *ngIf="formProduct"
+        [formGroup]="formProduct"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-card-content>
+          <div class="form-container">
+            <!-- Id field -->
+            <mat-form-field>
+              <mat-label>รหัส</mat-label>
+              <input matInput name="id" formControlName="id" readonly />
+            </mat-form-field>
+
+            <!-- Name field -->
+            <mat-form-field class="!mt-0">
+              <mat-label>ชื่อ</mat-label>
+              <input matInput name="name" formControlName="name" required />
+              <mat-error
+                *ngIf="
+                  formProduct?.get('name')?.invalid &&
+                  formProduct?.get('name')?.touched
+                "
+              >
+                *โปรดระบุ ชื่อสินค้า</mat-error
+              >
+            </mat-form-field>
+
+            <!-- Price field -->
+            <mat-form-field class="!mt-0">
+              <mat-label>ราคา</mat-label>
+              <input
+                type="number"
+                matInput
+                name="price"
+                formControlName="price"
+                required
+              />
+            </mat-form-field>
+
+            <!-- Stock field -->
+            <mat-form-field class="!mt-0">
+              <mat-label>จำนวน</mat-label>
+              <input
+                type="number"
+                matInput
+                name="price"
+                formControlName="stock"
+                required
+              />
+            </mat-form-field>
+
+            <!-- Preview image -->
+            <div class="flex justify-content-center">
+              <!-- for original preview image -->
+              <img
+                alt=""
+                class="h-[100px]"
+                *ngIf="originalImage"
+                [src]="rest.getProductImage(originalImage)"
+              />
+              <!-- for new preview image -->
+              <img
+                alt=""
+                class="h-[100px]"
+                *ngIf="originalImage == null"
+                [src]="imageURL"
+              />
+            </div>
+
+            <input
+              type="file"
+              formControlName="image"
+              placeholder="รูปสินค้า"
+              (change)="onChangeImage($event)"
+            />
+          </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="default"
+            type="button"
+            (click)="onClickCancel()"
+          >
+            ยกเลิก
+          </button>
+          <button mat-raised-button color="primary" type="submit" class="ml-2">
+            บันทึก
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</ng-container>
+<ng-container *ngIf="!formProduct">
+  <h1>Loading...</h1>
+</ng-container>
