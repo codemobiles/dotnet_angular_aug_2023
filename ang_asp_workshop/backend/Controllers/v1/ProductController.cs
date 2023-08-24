@@ -52,6 +52,22 @@ namespace backend.Controller.v1
 
         }
 
+        ///..../search/name?keyword=1234
+        [HttpGet("search/name/")]
+        public IActionResult SearchProduct([FromQuery] string keyword)
+        {
+            try
+            {
+                var result = _productRepository.SearchProduct(keyword);
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, new { message = error });
+            }
+        }
+
+
         [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
