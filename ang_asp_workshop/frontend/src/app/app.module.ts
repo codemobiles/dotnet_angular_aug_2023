@@ -28,6 +28,7 @@ import {
 } from '@angular/common/http';
 import { ConfirmCreateDialogComponent } from './components/confirm-create-dialog/confirm-create-dialog.component';
 import { authInterceptor } from './services/auth.interceptor';
+import { CustomPipe } from './pipes/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { authInterceptor } from './services/auth.interceptor';
     ConfirmDialogComponent,
     SuccessDialogComponent,
     ConfirmCreateDialogComponent,
+    CustomPipe,
   ],
   imports: [
     BrowserModule,
