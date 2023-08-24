@@ -20,7 +20,6 @@ export class StockComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
   searchValue = '';
-  searchTerm = new Subject<string>(); // subject is list of observable - receive new req by calling next function
 
   constructor(public rest: RestService, private dialog: MatDialog) {}
 
@@ -30,10 +29,6 @@ export class StockComponent implements OnInit, AfterViewInit {
     // });
 
     this.dataSource.data = await firstValueFrom(this.rest.getProducts());
-
-    this.rest.searchProductWithDebounce(this.searchTerm).subscribe((data) => {
-      this.dataSource.data = data;
-    });
   }
 
   ngAfterViewInit() {
@@ -69,17 +64,13 @@ export class StockComponent implements OnInit, AfterViewInit {
   async doFilter(event: any) {
     // do local
     // this.dataSource.filter = event.target.value.trim();
-
     // do remote
     this.dataSource.data = await lastValueFrom(
       this.rest.getProductByKeyword(event.target.value)
     );
-
-    // this.searchTerm.next(event.target.value);
   }
 
   clearSearch() {
     this.searchValue = '';
-    this.searchTerm.next('');
   }
 }

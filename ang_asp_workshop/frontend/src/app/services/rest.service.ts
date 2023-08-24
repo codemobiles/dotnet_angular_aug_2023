@@ -116,18 +116,4 @@ export class RestService {
     const url = `${this.productUrl}/search/name/?keyword=${keyword}`;
     return this.http.get<any[]>(url);
   }
-
-  searchProductWithDebounce(terms: Observable<string>) {
-    return terms.pipe(
-      debounceTime(400),
-      distinctUntilChanged(),
-      switchMap((keyword: string) => {
-        if (keyword != null && keyword != '') {
-          return this.getProductByKeyword(keyword);
-        } else {
-          return this.getProducts();
-        }
-      })
-    );
-  }
 }
