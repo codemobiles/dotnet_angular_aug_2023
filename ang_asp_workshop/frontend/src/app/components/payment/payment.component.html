@@ -4,4 +4,8 @@
   <ul>
     <li *ngFor="let item of products">{{ item.name }}</li>
   </ul>
+
+  <button mat-raised-button color="primary" (click)="handlePayment()">
+    Payment
+  </button>
 </div>
