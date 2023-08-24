@@ -80,7 +80,8 @@ export class ShopComponent implements OnInit {
     return JSON.stringify(this.mOrderArray);
   }
 
-  onPaymentCompleted() {
+  onPaymentCompleted(result: string) {
+    alert(result);
     this.clearAllItems();
     this.mIsPaymentShown = false;
   }
