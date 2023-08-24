@@ -58,7 +58,8 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseCors("AllowAllOrigins");
 app.UseHttpsRedirection();
-app.UseAuthorization();
+app.UseAuthentication(); // jwt
+app.UseAuthorization(); // Admin or Others
 app.MapControllers();
 
 app.Run();
