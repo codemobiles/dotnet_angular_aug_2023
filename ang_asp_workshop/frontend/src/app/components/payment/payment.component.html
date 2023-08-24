@@ -1,5 +1,7 @@
 <div>
   <h1>Payment</h1>
   <h2>Total: {{ totalNumber | number }}</h2>
-  <span>{{ productOrder }}</span>
+  <ul>
+    <li *ngFor="let item of products">{{ item.name }}</li>
+  </ul>
 </div>
