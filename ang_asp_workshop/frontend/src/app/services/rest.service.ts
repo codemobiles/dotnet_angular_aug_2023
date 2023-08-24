@@ -119,6 +119,8 @@ export class RestService {
 
   listenSearchEvents(searchTerm: Observable<string>) {
     return searchTerm.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
       switchMap((keyword) => {
         if (keyword != null && keyword != '') {
           return this.getProductByKeyword(keyword);
