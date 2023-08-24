@@ -36,10 +36,6 @@ export class StockComponent implements OnInit, AfterViewInit {
     });
   }
 
-  check() {
-    console.log(this.searchValue);
-  }
-
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
@@ -70,13 +66,16 @@ export class StockComponent implements OnInit, AfterViewInit {
     }
   }
 
-  doFilter(event: any) {
+  async doFilter(event: any) {
     // do local
-    // this.dataSource.filter = filterValue.trim().toLowerCase()
+    // this.dataSource.filter = event.target.value.trim();
 
     // do remote
-    // this.dataSource.data = await this.rest.getProductByKeyword(filterValue).toPromise()
-    this.searchTerm.next(event.target.value);
+    this.dataSource.data = await lastValueFrom(
+      this.rest.getProductByKeyword(event.target.value)
+    );
+
+    // this.searchTerm.next(event.target.value);
   }
 
   clearSearch() {
