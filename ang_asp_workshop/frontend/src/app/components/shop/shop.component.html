@@ -166,7 +166,7 @@
       class="w-full flex items-center h-[80vh]"
     >
       <app-payment
-        (onCompleted)="onPaymentCompleted($event)"
+        (onCompleted)="onPaymentCompleted('Payment successfully')"
         [productOrder]="jsonOrderArray"
         [totalNumber]="mTotalPrice"
       ></app-payment>
