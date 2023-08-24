@@ -52,6 +52,24 @@ namespace backend.Controller.v1
 
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct(int id)
+        {
+            try
+            {
+                var product = _productRepository.GetProduct(id);
+                if (product == null)
+                {
+                    return NotFound(new { message = "Product not found" });
+                }
+                _productRepository.DeleteProduct(product);
+                return NoContent();
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, new { message = error });
+            }
+        }
 
 
         [HttpGet("{id}")]
