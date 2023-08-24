@@ -19,7 +19,6 @@ namespace backend.Controllers.v1
 
         public TransactionController(DatabaseContext databaseContext)
         {
-
             this.databaseContext = databaseContext;
         }
 
