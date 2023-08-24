@@ -7,14 +7,14 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./payment.component.scss'],
 })
 export class PaymentComponent {
-  @Output() onCompleted = new EventEmitter();
+  @Output() onCompleted = new EventEmitter<string>();
   @Input() productOrder: string = '[]';
   @Input() totalNumber: number = 0;
 
   handlePayment() {
     // send payment request to server
 
-    this.onCompleted.emit();
+    this.onCompleted.emit('Payment successfully');
   }
 
   public get products(): Product[] {
