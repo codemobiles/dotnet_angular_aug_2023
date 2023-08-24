@@ -7,12 +7,15 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./payment.component.scss'],
 })
 export class PaymentComponent {
-handlePayment() {
-throw new Error('Method not implemented.');
-}
   @Output() onCompleted = new EventEmitter();
   @Input() productOrder: string = '[]';
   @Input() totalNumber: number = 0;
+
+  handlePayment() {
+    // send payment request to server
+
+    this.onCompleted.emit();
+  }
 
   public get products(): Product[] {
     return JSON.parse(this.productOrder);
