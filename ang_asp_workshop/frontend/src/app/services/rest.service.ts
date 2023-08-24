@@ -116,4 +116,16 @@ export class RestService {
     const url = `${this.productUrl}/search/name/?keyword=${keyword}`;
     return this.http.get<any[]>(url);
   }
+
+  listenSearchEvents(searchTerm: Observable<string>) {
+    return searchTerm.pipe(
+      switchMap((keyword) => {
+        if (keyword != null && keyword != '') {
+          return this.getProductByKeyword(keyword);
+        } else {
+          return this.getProducts();
+        }
+      })
+    );
+  }
 }
