@@ -27,6 +27,32 @@ namespace backend.Controller.v1
         }
 
 
+        [HttpPut]
+        public IActionResult EditProduct([FromForm] Product product, IFormFile file)
+        {
+            try
+            {
+                var result = _productRepository.GetProduct((int)product.ProductId!);
+                if (result == null)
+                {
+                    return NotFound(new { message = "Product not found" });
+                }
+
+                result.Name = product.Name;
+                result.Stock = product.Stock;
+                result.Price = product.Price;
+
+                _productRepository.EditProduct(result, file);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { message = e });
+            }
+
+        }
+
+
 
         [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
