@@ -14,14 +14,6 @@ using backend.Installers;
 namespace backend.Services
 {
 
-    public class JwtSettings
-    {
-        public string SecretKey { get; set; }
-        public string Issuer { get; set; }
-        public string Audience { get; set; }
-        public string Expire { get; set; }
-    }
-
     public class AuthRepository : IAuthRepository
     {
         private readonly DatabaseContext _context;

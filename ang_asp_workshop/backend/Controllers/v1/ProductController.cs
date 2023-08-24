@@ -4,11 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.Models;
 using backend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 //using Controllers.Models;
 
 namespace backend.Controller.v1
 {
+
+    // curl -X 'GET'  'https://localhost:8081/api/v1/Product'  -H 'accept: */*' -H 'Authorization: Bearer <token>'
+
+    [Authorize]
     [Route("api/v1/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
