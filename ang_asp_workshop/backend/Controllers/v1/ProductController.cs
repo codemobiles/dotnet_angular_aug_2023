@@ -22,10 +22,19 @@ namespace backend.Controller.v1
         [HttpPost]
         public IActionResult AddProduct([FromForm] Product product, IFormFile file)
         {
-            Console.WriteLine("There is request");
             _productRepository.AddProduct(product, file);
             return Ok();
         }
+
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetProduct(int id)
+        {
+            var result = _productRepository.GetProduct(id);
+            return Ok(result);
+        }
+
 
 
         [HttpGet]
