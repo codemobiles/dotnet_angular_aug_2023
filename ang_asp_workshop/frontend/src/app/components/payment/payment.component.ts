@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-payment',
@@ -7,6 +8,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PaymentComponent {
   @Output() onCompleted = new EventEmitter();
-  @Input() productOrder: string = '{}';
+  @Input() productOrder: string = '[]';
   @Input() totalNumber: number = 0;
+
+  public get products(): Product[] {
+    return JSON.parse(this.productOrder);
+  }
 }
