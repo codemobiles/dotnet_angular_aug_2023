@@ -36,6 +36,10 @@ export class StockComponent implements OnInit, AfterViewInit {
     });
   }
 
+  check() {
+    console.log(this.searchValue);
+  }
+
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

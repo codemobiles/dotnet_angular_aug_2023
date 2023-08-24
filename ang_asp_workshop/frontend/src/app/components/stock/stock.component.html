@@ -15,15 +15,15 @@
       </button>
     </div>
     <mat-card-content>
-      <mat-form-field class="w-[300px]">
+      <mat-form-field class="w-full">
         <input
-          [(ngModel)]="searchValue"
-          class="w-[300px]"
+          class="w-100"
           matInput
           type="text"
           placeholder="ค้นหา"
+          [(ngModel)]="searchValue"
+          (keyup)="doFilter($event)"
         />
-        <button (click)="clearSearch()">clear</button>
         <button
           mat-button
           *ngIf="searchValue"
