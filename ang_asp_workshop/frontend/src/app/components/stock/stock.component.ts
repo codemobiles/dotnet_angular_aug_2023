@@ -21,6 +21,8 @@ export class StockComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
   searchValue = '';
 
+  searchTerm = new Subject<string>();
+
   constructor(public rest: RestService, private dialog: MatDialog) {}
 
   async ngOnInit() {
@@ -65,9 +67,11 @@ export class StockComponent implements OnInit, AfterViewInit {
     // do local
     // this.dataSource.filter = event.target.value.trim();
     // do remote
-    this.dataSource.data = await lastValueFrom(
-      this.rest.getProductByKeyword(event.target.value)
-    );
+    // this.dataSource.data = await lastValueFrom(
+    //   this.rest.getProductByKeyword(event.target.value)
+    // );
+
+    this.searchTerm.next(event.target.value);
   }
 
   clearSearch() {
