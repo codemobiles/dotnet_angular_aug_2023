@@ -1,1 +1,9 @@
-<p>success-dialog works!</p>
+<div style="width: 300px">
+  <h1 mat-dialog-title>{{ data.title }}</h1>
+  <div mat-dialog-content class="mat-typography">
+    <h3 class="mat-small">{{ data.subtitle }}</h3>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="onClickConfirm()" color="primary">ปิด</button>
+  </div>
+</div>

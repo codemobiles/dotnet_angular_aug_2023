@@ -73,7 +73,8 @@ export class PaymentComponent implements OnInit {
 
     try {
       // Send transaction
-      await lastValueFrom(this.rest.sendTransaction(trans));
+      const result = await lastValueFrom(this.rest.sendTransaction(trans));
+
       const dialogConfirm = this.dialog.open(SuccessDialogComponent, {
         data: {
           title: 'การชำระ',

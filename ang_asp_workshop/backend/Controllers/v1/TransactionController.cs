@@ -86,6 +86,7 @@ namespace backend.Controllers.v1
                 databaseContext.Add(transaction);
                 databaseContext.SaveChanges();
 
+
                 return CreatedAtAction(nameof(GetTransaction), new { id = transaction.TransactionId }, transaction);
             }
             catch (Exception error)
