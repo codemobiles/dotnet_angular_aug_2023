@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 //using backend.Models;
 
-namespace backend.Controllers.v1
+namespace backend.Controllers.v2
 {
     // [Route("api/[controller]")]
 
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class SimpleController : ControllerBase
@@ -21,7 +21,7 @@ namespace backend.Controllers.v1
         [HttpGet("")]
         public ActionResult<IEnumerable<string>> Getstrings()
         {
-            return new List<string> { "React", "Angular", "VueJS" };
+            return new List<string> { "React", "Angular", "VueJS", "Flutter" };
         }
 
         [HttpGet("result1")]

@@ -16,6 +16,22 @@ namespace backend.Installers
             {
 
 
+                // this will set swagger (left) title at http://localhost:5122/swagger/index.html
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "CodeMobiles .NETCore", Version = "1.0" });
+                c.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "CodeMobiles .NETCore", Version = "2.0" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                // must configure in .csproj file in part of <GenerateDocumentationFile>true</GenerateDocumentationFile>
+                // how to comment - check out in AuthController <summary>....
+                // this will create the file named "backend.xml" in bin folder
+                // ex: ".../backend/bin/Debug/net7.0/backend.xml"
+                // backend.xml : backend is the folder
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+
+
+
                 // Uses full schema names to avoid v1/v2/v3 schema collisions
                 // see: https://github.com/domaindrivendev/Swashbuckle/issues/442
                 //c.CustomSchemaIds(x => x.FullName);
