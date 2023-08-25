@@ -43,7 +43,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    // app.UseSwaggerUI();
+
+    // This will allow swagger to show two options (right side) of definition to view the api version.
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "CodeMobile API V1");
+        c.SwaggerEndpoint("/swagger/v2/swagger.json", "CodeMobile API V2");
+    });
 }
 
 app.UseStaticFiles();

@@ -108,3 +108,5 @@
 /Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/bin/Debug/net7.0/publish/publish/publish/appsettings.json
 /Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/bin/Debug/net7.0/publish/publish/publish/backend.deps.json
 /Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/bin/Debug/net7.0/publish/publish/publish/backend.runtimeconfig.json
+/Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/bin/Debug/net7.0/backend.xml
+/Users/chaiyasittayabovorn/Desktop/tmp/dotnet_angular_aug_2023/ang_asp_workshop/backend/obj/Debug/net7.0/backend.xml
