@@ -100,6 +100,7 @@ namespace backend.Controller.v1
         [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
+            _logger.LogInformation("There is product query");
             var result = _productRepository.GetProduct(id);
             return Ok(result);
         }
