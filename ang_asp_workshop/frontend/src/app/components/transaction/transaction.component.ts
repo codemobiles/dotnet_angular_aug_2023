@@ -52,7 +52,7 @@ export class TransactionComponent implements OnInit, AfterViewInit {
   onClickRow(id: string) {
     this.selectedId = id;
     setTimeout(() => {
-      // this.detailComponent.load(this.selectedId);
+      this.detailTransaction.load(this.selectedId);
     }, 100);
   }
 }
