@@ -19,8 +19,12 @@ namespace backend.Controller.v1
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository productRepository)
+        private readonly ILogger<AuthController> _logger;
+
+        public ProductController(IProductRepository productRepository, ILogger<AuthController> logger
+)
         {
+            _logger = logger;
             _productRepository = productRepository;
         }
 
