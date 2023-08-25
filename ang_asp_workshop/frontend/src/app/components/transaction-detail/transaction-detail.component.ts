@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { Product } from 'src/app/models/product.model';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -8,13 +9,13 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./transaction-detail.component.scss'],
 })
 export class TransactionDetailComponent implements OnInit {
-  orderString = '[]';
+  order_list: Product[] = [];
   constructor(private rest: RestService) {}
 
   ngOnInit(): void {}
 
   async load(id: string) {
     const response = await lastValueFrom(this.rest.getTransactionById(id));
-    this.orderString = JSON.stringify(response);
+    this.order_list = JSON.parse(response.orderList);
   }
 }

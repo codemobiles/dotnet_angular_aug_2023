@@ -1,3 +1,7 @@
 <div>
-  {{ orderString }}
+  <ul>
+    <li class="m-3" *ngFor="let o of order_list">
+      x{{ o.stock }} | {{ o.name }}
+    </li>
+  </ul>
 </div>
