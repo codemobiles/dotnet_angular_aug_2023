@@ -1,11 +1,38 @@
-<div style="display: block">
-  <canvas
-    baseChart
-    class="w-full h-full"
-    [type]="'bar'"
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [legend]="lineChartLegend"
-  >
-  </canvas>
+<div class="flex flex-row justify-center mt-10">
+  <mat-card class="w-[95%]">
+    <div class="flex flex-row content-between">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>ballot</mat-icon>
+        <mat-card-title>Stock Management</mat-card-title>
+        <mat-card-subtitle>121 รายการ</mat-card-subtitle>
+      </mat-card-header>
+    </div>
+    <mat-card-content>
+      <div class="flex flex-row justify-evenly pt-10">
+        <canvas
+          id="lineChart"
+          baseChart
+          class="w-[50%]"
+          height="400"
+          type="line"
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend"
+        >
+        </canvas>
+
+        <canvas
+          id="barChart"
+          baseChart
+          class="w-[50%]"
+          height="400"
+          type="bar"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+        >
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
