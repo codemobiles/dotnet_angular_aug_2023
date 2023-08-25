@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -8,8 +9,12 @@ import { RestService } from 'src/app/services/rest.service';
 })
 export class TransactionDetailComponent implements OnInit {
   orderString = '[]';
+  constructor(private rest: RestService) {}
 
   ngOnInit(): void {}
 
-  load(orderJSONString: string) {}
+  async load(id: string) {
+    const response = await lastValueFrom(this.rest.getTransactionById(id));
+    this.orderString = JSON.stringify(response);
+  }
 }
