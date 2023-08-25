@@ -29,6 +29,7 @@ import {
 import { ConfirmCreateDialogComponent } from './components/confirm-create-dialog/confirm-create-dialog.component';
 import { authInterceptor } from './services/auth.interceptor';
 import { CustomPipe } from './pipes/custom.pipe';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CustomPipe } from './pipes/custom.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgChartsModule,
   ],
   providers: [provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent],
