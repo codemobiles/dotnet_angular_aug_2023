@@ -1,1 +1,92 @@
-<p>transaction works!</p>
+<div class="flex flex-row justify-center mt-10">
+  <mat-card class="w-[95%] h-[100%]">
+    <div class="flex flex-row justify-between">
+      <mat-card-header>
+        <mat-card-title>Transaction History</mat-card-title>
+        <mat-card-subtitle>121 รายการ</mat-card-subtitle>
+      </mat-card-header>
+    </div>
+    <mat-card-content class="!flex flex-row">
+      <!-- transaction summary -->
+      <div class="flex-1.5">
+        <table
+          mat-table
+          #table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8 w-100 table-hovor"
+          matSort
+        >
+          <!-- Id -->
+          <ng-container matColumnDef="transactionId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>เลขที่</th>
+            <td mat-cell *matCellDef="let row">{{ row.transactionId }}</td>
+          </ng-container>
+
+          <!-- Timestamp -->
+          <ng-container matColumnDef="timestamp">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>เวลา</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.timestamp | date : "dd/MM/yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- StaffID -->
+          <ng-container matColumnDef="employeeId">
+            <th mat-header-cell *matHeaderCellDef>พนังงาน</th>
+            <td mat-cell *matCellDef="let row">{{ row.employeeId }}</td>
+          </ng-container>
+
+          <!-- Total -->
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ยอดรวม</th>
+            <td mat-cell *matCellDef="let row">
+              ฿ {{ row.total | number : "1.2-2" }}
+            </td>
+          </ng-container>
+
+          <!-- Paid -->
+          <ng-container matColumnDef="paid">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ชำระ</th>
+            <td mat-cell *matCellDef="let row">
+              ฿ {{ row.paid | number : "1.2-2" }}
+            </td>
+          </ng-container>
+
+          <!-- Discount -->
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>ส่วนลด</th>
+            <td mat-cell *matCellDef="let row">
+              ฿ {{ row.discount | number : "1.2-2" }}
+            </td>
+          </ng-container>
+
+          <!-- Detail -->
+          <ng-container matColumnDef="orderList">
+            <th mat-header-cell *matHeaderCellDef>รายการ</th>
+            <td mat-cell *matCellDef="let row">
+              {{ getNumberOfSKU(row.orderList) }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            [ngClass]="{ highlight: selectedId == row.transactionId }"
+            (click)="onClickRow(row.transactionId)"
+          ></tr>
+        </table>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 15, 25, 100]">
+        </mat-paginator>
+      </div>
+
+      <!-- Divider -->
+      <div class="w-10"></div>
+
+      <!-- transaction detail -->
+      <div class="flex-1">
+        <app-transaction-detail #detail> </app-transaction-detail>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
