@@ -23,19 +23,6 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
     .AsImplementedInterfaces();
 });
 
-// Add services to the container.
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "AllowAllOrigins",
-                      policy =>
-                      {
-                          policy.AllowAnyOrigin()
-                               .AllowAnyHeader()
-                               .AllowAnyMethod();
-                      });
-
-});
-
 // Configure DB
 // builder.Services.AddDbContext<DatabaseContext>(options =>
 // options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionSQLServer")));
