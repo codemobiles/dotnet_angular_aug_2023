@@ -24,16 +24,15 @@
           [(ngModel)]="searchValue"
           (keyup)="doFilter($event)"
         />
-        <!-- <button
-          mat-button
+        <button
           *ngIf="searchValue"
           matSuffix
           mat-icon-button
           aria-label="Clear"
           (click)="clearSearch()"
         >
-          <mat-icon>close</mat-icon>
-        </button> -->
+          <mat-icon class="!text-sm">close</mat-icon>
+        </button>
       </mat-form-field>
 
       <table

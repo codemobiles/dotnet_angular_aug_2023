@@ -80,5 +80,6 @@ export class StockComponent implements OnInit, AfterViewInit {
 
   clearSearch() {
     this.searchValue = '';
+    this.searchTerm.next('');
   }
 }
