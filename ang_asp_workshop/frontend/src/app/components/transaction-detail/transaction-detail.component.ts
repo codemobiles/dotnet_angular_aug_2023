@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
-import { Product } from 'src/app/models/product.model';
 import { RestService } from 'src/app/services/rest.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-transaction-detail',
@@ -9,13 +9,15 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./transaction-detail.component.scss'],
 })
 export class TransactionDetailComponent implements OnInit {
-  order_list: Product[] = [];
-  constructor(private rest: RestService) {}
+  displayedColumns = ['image', 'name', 'price', 'qty'];
+  dataSource = new MatTableDataSource<any>();
+  constructor(public rest: RestService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   async load(id: string) {
-    const response = await lastValueFrom(this.rest.getTransactionById(id));
-    this.order_list = JSON.parse(response.orderList);
+    let result = await lastValueFrom(this.rest.getTransactionById(id));
+    console.log(JSON.stringify(result));
+    this.dataSource.data = JSON.parse(result.orderList);
   }
 }
