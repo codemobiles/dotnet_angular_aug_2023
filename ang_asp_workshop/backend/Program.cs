@@ -14,6 +14,10 @@ builder.Services.AddAutoMapper(typeof(Program));
 // InstallerExtensions.cs extension adds InstallServiceInAssembly
 builder.Services.InstallServiceInAssembly(builder.Configuration);
 
+// Write log file
+builder.Host.ConfigureLogging((hostingContext, builder) => { builder.AddFile("Logs/cmpos_api-{Date}.txt", LogLevel.Debug, null, false, null, null); });
+
+
 // Option 2# to Auto Add Services Repository (2 methods)
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()); // Call this before calling builder.Host.ConfigureContainer..
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
