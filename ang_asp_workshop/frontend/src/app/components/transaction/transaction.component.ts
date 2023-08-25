@@ -22,8 +22,10 @@ export class TransactionComponent implements OnInit, AfterViewInit {
     'orderList',
   ];
   dataSource = new MatTableDataSource<any>();
+
   @ViewChild('detail', { static: false })
-  detailComponent!: TransactionDetailComponent;
+  detailTransaction!: TransactionDetailComponent;
+
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
 
@@ -50,7 +52,7 @@ export class TransactionComponent implements OnInit, AfterViewInit {
   onClickRow(id: string) {
     this.selectedId = id;
     setTimeout(() => {
-      this.detailComponent.load(this.selectedId);
+      // this.detailComponent.load(this.selectedId);
     }, 100);
   }
 }
