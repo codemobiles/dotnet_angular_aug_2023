@@ -20,6 +20,15 @@ export class ReportComponent {
         borderColor: 'black',
         backgroundColor: 'rgba(255,0,0,0.3)',
       },
+
+      {
+        data: [65, 59, 80, 81, 56, 55, 40].reverse(),
+        label: 'Series B',
+        fill: true,
+        tension: 0.5,
+        borderColor: 'yellow',
+        backgroundColor: 'rgba(255,255,0,0.3)',
+      },
     ],
   };
   public lineChartOptions: ChartOptions<'line'> = {
